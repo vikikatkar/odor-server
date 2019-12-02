@@ -14,20 +14,53 @@ import lombok.Data;
 @Data
 @Entity
 public class Report{
-    private @Id @GeneratedValue Long id;
-    int reportId;
+    private @Id @GeneratedValue Long reportId;
 
     @JsonFormat(pattern="MM-dd-yyyy HH:mm")
     Date dateTime;
-    String emailHash;
-    //Location loc;
-    //OdorInfo    odorInfo;
+    int emailHash;
+    double lat;
+    double lng;
+    String odorCategory;
+    String odorDescription;
+    String customDescription;
     
+    public double getLat() {
+        return lat;
+    }
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+    public double getLng() {
+        return lng;
+    }
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+    public String getOdorCategory() {
+        return odorCategory;
+    }
+    public void setOdorCategory(String odorCategory) {
+        this.odorCategory = odorCategory;
+    }
+    public String getOdorDescription() {
+        return odorDescription;
+    }
+    public void setOdorDescription(String odorDescription) {
+        this.odorDescription = odorDescription;
+    }
+    public String getCustomDescription() {
+        return customDescription;
+    }
+    public void setCustomDescription(String customDescription) {
+        this.customDescription = customDescription;
+    }
+   
     @Override
     public int hashCode() {
         final int prime = 13;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((reportId == null) ? 0 : reportId.hashCode());
         result = prime * result + ((dateTime == null) ? 0 : dateTime.hashCode());
         return result;
     }
@@ -36,14 +69,17 @@ public class Report{
     public Report() {
     }
 
-    public Report(String emailHash /*Location loc, OdorInfo odorInfo*/) {
+    public Report(Date dateTime, int emailHash, double lat, double lng, String odorCategory, String odorDescription,
+            String customDescription) {
         super();
-        this.dateTime = new Date();//Now
+        this.dateTime = dateTime;
         this.emailHash = emailHash;
-        //this.loc = loc;
-        //this.odorInfo = odorInfo;
+        this.lat = lat;
+        this.lng = lng;
+        this.odorCategory = odorCategory;
+        this.odorDescription = odorDescription;
+        this.customDescription = customDescription;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -53,10 +89,10 @@ public class Report{
         if (getClass() != obj.getClass())
             return false;
         Report other = (Report) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (reportId == null) {
+            if (other.reportId != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!reportId.equals(other.reportId))
             return false;
         if (dateTime == null) {
             if (other.dateTime != null)
@@ -64,11 +100,6 @@ public class Report{
         } else if (!dateTime.equals(other.dateTime))
             return false;
         
-//        if( odorInfo == null ) {
-//            if( other.odorInfo != null )
-//                return false;
-//        }else if (! odorInfo.equals(odorInfo))
-//            return false;
         return true;
     }
 

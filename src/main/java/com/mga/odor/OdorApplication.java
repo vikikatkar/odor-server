@@ -22,18 +22,18 @@ public class OdorApplication {
     OdorApplication(ReportRepository repository) {
         this.reportRepo = repository;
         
-        Location loc;String email;OdorInfo odorInfo;
-        loc = new Location(37.432324, -121.89957);
-        email = "joy_1@gmail.com";
-        odorInfo = new OdorInfo("Nose Feel","Pungent","");
+        Report r;
+        r = new Report(new Date(),"joy_1@gmail.com".hashCode(),37.43323, -121.89957, "Nose Feel","Pungent","");
+        reportRepo.save(r);
+        r = new Report(new Date(),"joy_2@gmail.com".hashCode(),37.43334, -121.89930, "Nose Feel","Irritating","");
+        reportRepo.save(r);
+        r = new Report(new Date(),"joy_3@gmail.com".hashCode(),37.43323, -121.89940, "Solvent","Tar","");
+        reportRepo.save(r);
+        r = new Report(new Date(),"joy_3@gmail.com".hashCode(),37.43323, -121.89800, "Custom Category","Burning Tire","");
+        reportRepo.save(r);
         
-        Report r = new Report("joy_1@gmail.com");
-        reportRepo.save(r);
-        r = new Report("joy_2@gmail.com");
-        reportRepo.save(r);
-        r = new Report("joy_3@gmail.com");
-        reportRepo.save(r);
         List<Report> allReports = reportRepo.findAll();
+        
         for( Report report : allReports) {
             log.info("OdorApplication : Adding activity {}", report.toString());
         }
