@@ -25,37 +25,6 @@ public class Report{
     String odorDescription;
     String customDescription;
     
-    public double getLat() {
-        return lat;
-    }
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-    public double getLng() {
-        return lng;
-    }
-    public void setLng(double lng) {
-        this.lng = lng;
-    }
-    public String getOdorCategory() {
-        return odorCategory;
-    }
-    public void setOdorCategory(String odorCategory) {
-        this.odorCategory = odorCategory;
-    }
-    public String getOdorDescription() {
-        return odorDescription;
-    }
-    public void setOdorDescription(String odorDescription) {
-        this.odorDescription = odorDescription;
-    }
-    public String getCustomDescription() {
-        return customDescription;
-    }
-    public void setCustomDescription(String customDescription) {
-        this.customDescription = customDescription;
-    }
-   
     @Override
     public int hashCode() {
         final int prime = 13;
