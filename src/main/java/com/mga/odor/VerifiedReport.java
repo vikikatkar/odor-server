@@ -45,6 +45,10 @@ public class VerifiedReport{
         this.customDescription = customDescription;
         this.verified = verified;
     }
+    
+    Long getReportId() {
+        return reportId;
+    }
 
 
 }

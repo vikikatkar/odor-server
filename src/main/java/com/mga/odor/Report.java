@@ -24,6 +24,7 @@ public class Report{
     String odorCategory;
     String odorDescription;
     String customDescription;
+    boolean isVerified;
     
     @Override
     public int hashCode() {
@@ -49,6 +50,16 @@ public class Report{
         this.odorDescription = odorDescription;
         this.customDescription = customDescription;
     }
+    
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.isVerified = verified;
+    }
+    
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -71,5 +82,6 @@ public class Report{
         
         return true;
     }
+
 
 }

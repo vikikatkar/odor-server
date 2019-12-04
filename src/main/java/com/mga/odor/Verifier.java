@@ -22,4 +22,25 @@ public class Verifier{
         this.numberOfVerifications = numberOfVerifications;
     }
 
+    @Override
+    public String toString() {
+        return "Verifier [emailHash=" + emailHash + ", numberOfVerifications=" + numberOfVerifications + "]";
+    }
+
+    public int getEmailHash() {
+        return emailHash;
+    }
+
+    public void setEmailHash(int emailHash) {
+        this.emailHash = emailHash;
+    }
+
+    public int getNumberOfVerifications() {
+        return numberOfVerifications;
+    }
+
+    public void setNumberOfVerifications(int numberOfVerifications) {
+        this.numberOfVerifications = numberOfVerifications;
+    }
+    
 }
